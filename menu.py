@@ -1,25 +1,48 @@
-def display_menu():
-    print("Please choose an option from the menu:")
+def main():
+    while True:
+        print_main_menu()
+        main_choice = input("Enter your choice: ")
+        if main_choice == "1":
+            sub_menu("1")
+        elif main_choice == "2":
+            sub_menu("2")
+        elif main_choice == "3":
+            sub_menu("3")
+        elif main_choice == "4":
+            sub_menu("4")
+        elif main_choice == "5":
+            sub_menu("5")
+        else:
+            print("Invalid choice. Please try again.")
+
+def print_main_menu():
+    print("\nMain Menu:")
     print("1. Option 1")
     print("2. Option 2")
     print("3. Option 3")
-    print("4. Exit")
+    print("4. Option 4")
+    print("5. Option 5")
 
-def main():
+def sub_menu(main_choice):
     while True:
-        display_menu()
-        user_choice = input("Enter your choice: ")
-        if user_choice == "1":
-            print("You chose Option 1.")
-        elif user_choice == "2":
-            print("You chose Option 2.")
-        elif user_choice == "3":
-            print("You chose Option 3.")
-        elif user_choice == "4":
-            print("Exiting the program.")
+        print_sub_menu(main_choice)
+        sub_choice = input("Enter your choice (or 'b' to go back): ")
+        if sub_choice == "1":
+            print(f"You selected sub-option 1 of main option {main_choice}")
+        elif sub_choice == "2":
+            print(f"You selected sub-option 2 of main option {main_choice}")
+        elif sub_choice == "3":
+            print(f"You selected sub-option 3 of main option {main_choice}")
+        elif sub_choice.lower() == 'b':
             break
         else:
-            print("Invalid choice. Please choose a valid option.")
+            print("Invalid choice. Please try again.")
+
+def print_sub_menu(main_choice):
+    print(f"\nSub-Menu for Main Option {main_choice}:")
+    print("1. Sub-Option 1")
+    print("2. Sub-Option 2")
+    print("3. Sub-Option 3")
 
 if __name__ == "__main__":
     main()
